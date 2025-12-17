@@ -123,7 +123,7 @@ AI 会自动完成：克隆项目 → 安装依赖 → 引导获取 Cookie → �
 git clone https://github.com/dsphper/lanhu-mcp.git
 cd lanhu-mcp
 
-# 2. 运行安装脚本（交互式配置）
+# 2. 配置环境（会引导你输入 Cookie）
 bash setup-env.sh        # Linux/Mac
 # 或
 setup-env.bat           # Windows
@@ -131,6 +131,8 @@ setup-env.bat           # Windows
 # 3. 启动服务
 docker-compose up -d
 ```
+
+> 💡 `setup-env.sh` 会交互式引导你获取并配置蓝湖 Cookie，自动生成 `.env` 文件
 
 📖 详细文档：[Docker 部署指南](DEPLOY.md)
 
@@ -143,15 +145,25 @@ docker-compose up -d
 git clone https://github.com/dsphper/lanhu-mcp.git
 cd lanhu-mcp
 
-# 2. 一键安装脚本（推荐）
+# 2. 一键安装（推荐，会引导你配置 Cookie）
 bash easy-install.sh        # Linux/Mac
 # 或
 easy-install.bat           # Windows
+```
 
-# 或手动安装依赖
+> 💡 `easy-install.sh` 会自动安装依赖、引导获取 Cookie 并配置环境
+
+<details>
+<summary>或者手动安装（不推荐）</summary>
+
+```bash
+# 安装依赖
 pip install -r requirements.txt
 playwright install chromium
+
+# 手动配置（见下方"配置"部分）
 ```
+</details>
 
 ### 配置（源码运行需要）
 
