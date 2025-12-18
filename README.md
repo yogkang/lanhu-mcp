@@ -25,7 +25,7 @@
 
 ## 🌟 项目亮点
 
-一个功能强大的 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) 服务器，专为 AI 编程时代设计：
+一个功能强大的 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) 服务器（lanhumcp），专为 AI 编程时代设计：
 
 🔥 **核心创新**：
 - 📋 **智能需求分析**：自动提取 Axure 原型，三种分析模式（开发/测试/探索），四阶段零遗漏工作流
