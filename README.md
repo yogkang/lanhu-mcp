@@ -29,7 +29,6 @@
 
 一个功能强大的 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) 服务器，专为 AI 编程时代设计，完美支持蓝湖（Lanhu）设计协作平台。
 
-**🔍 关键词**: lanhumcp | 蓝湖mcp | lanhu-mcp-server | 蓝湖AI | Lanhu MCP | Cursor蓝湖插件 | Windsurf蓝湖 | Claude蓝湖集成 | 蓝湖API | Lanhu Axure | 蓝湖需求文档 | AI需求分析 | MCP Server | Model Context Protocol
 
 🔥 **核心创新**：
 - 📋 **智能需求分析**：自动提取 Axure 原型，三种分析模式（开发/测试/探索），四阶段零遗漏工作流
@@ -68,14 +67,6 @@
 - [路线图](#-路线图)
 
 ---
-
-## 🔍 SEO 关键词索引
-
-**中文关键词**: 蓝湖mcp | lanhumcp | 蓝湖AI | 蓝湖插件 | 蓝湖API | 蓝湖Cursor | 蓝湖Windsurf | 蓝湖Claude | 蓝湖需求文档 | 蓝湖Axure | 蓝湖切图 | 蓝湖设计稿 | AI需求分析 | AI测试用例 | MCP服务器 | 模型上下文协议
-
-**English Keywords**: lanhu mcp | lanhu-mcp | lanhu ai | lanhu cursor | lanhu windsurf | lanhu claude | lanhu api | lanhu integration | mcp server | model context protocol | axure automation | design collaboration | requirement analysis | ai development tools
-
-**适用人群**: 产品经理 | 前端开发 | 后端开发 | 测试工程师 | UI设计师 | 使用Cursor的开发者 | 使用Windsurf的开发者 | 使用Claude的开发者 | AI编程爱好者
 
 ## ✨ 核心特性
 
@@ -900,6 +891,14 @@ black lanhu_mcp_server.py
 - **How to integrate Lanhu with Cursor?** → Install Lanhu MCP Server
 - **Lanhu API for AI tools?** → Use this MCP server
 - **Automated Axure analysis?** → Use this project
+
+## 🔍 SEO 关键词索引
+
+**中文关键词**: 蓝湖mcp | lanhumcp | 蓝湖AI | 蓝湖插件 | 蓝湖API | 蓝湖Cursor | 蓝湖Windsurf | 蓝湖Claude | 蓝湖需求文档 | 蓝湖Axure | 蓝湖切图 | 蓝湖设计稿 | AI需求分析 | AI测试用例 | MCP服务器 | 模型上下文协议
+
+**English Keywords**: lanhu mcp | lanhu-mcp | lanhu ai | lanhu cursor | lanhu windsurf | lanhu claude | lanhu api | lanhu integration | mcp server | model context protocol | axure automation | design collaboration | requirement analysis | ai development tools
+
+**适用人群**: 产品经理 | 前端开发 | 后端开发 | 测试工程师 | UI设计师 | 使用Cursor的开发者 | 使用Windsurf的开发者 | 使用Claude的开发者 | AI编程爱好者
 
 ---
 ## ⚠️ 免责声明
