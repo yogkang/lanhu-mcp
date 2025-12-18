@@ -32,7 +32,7 @@
 **🔍 关键词**: lanhumcp | 蓝湖mcp | lanhu-mcp-server | 蓝湖AI | Lanhu MCP | Cursor蓝湖插件 | Windsurf蓝湖 | Claude蓝湖集成 | 蓝湖API | Lanhu Axure | 蓝湖需求文档 | AI需求分析 | MCP Server | Model Context Protocol
 
 🔥 **核心创新**：
-- 📋 **智能需求分析**：自动提取 Axure 原型，三种分析模式（开发/测试/探索），需求理解达99%准确率。
+- 📋 **智能需求分析**：自动提取 Axure 原型，三种分析模式（开发/测试/探索），四阶段零遗漏工作流
 - 💬 **团队留言板**：打破 AI IDE 孤岛，让所有 AI 助手共享知识库和上下文
 - 🎨 **UI设计支持**：自动下载设计稿，智能提取切图，语义化命名
 - ⚡ **性能优化**：基于版本号的智能缓存，增量更新，并发处理
@@ -40,7 +40,7 @@
 🎯 **适用场景**：
 - ✅ Cursor + 蓝湖：让 Cursor AI 直接读取蓝湖需求文档和设计稿
 - ✅ Windsurf + 蓝湖：Windsurf Cascade AI 自动分析 Axure 原型
-- ✅ Claude Desktop + 蓝湖：Claude AI 提取蓝湖切图和标注
+- ✅ Claude Code + 蓝湖：Claude AI 提取蓝湖切图和标注
 - ✅ 任何支持 MCP 协议的 AI 开发工具
 
 🎯 **解决痛点**：
@@ -251,7 +251,7 @@ docker-compose down              # 停止
 
 ### 连接到 AI 客户端
 
-在支持 MCP 的 AI 客户端（如 Claude Desktop、Cursor）中配置：
+在支持 MCP 的 AI 客户端（如 Claude Code、Cursor、Windsurf）中配置：
 
 **Cursor 配置示例：**
 ```json
@@ -272,7 +272,7 @@ docker-compose down              # 停止
 
 ### 为什么需要团队留言板？
 
-在 AI 编程时代，每个开发者都有自己的 AI 助手（Cursor、Windsurf、Claude Desktop）。但这带来了一个**严重的问题**：
+在 AI 编程时代，每个开发者都有自己的 AI 助手（Cursor、Windsurf、Claude Code）。但这带来了一个**严重的问题**：
 
 ```
 🤔 痛点场景：
@@ -893,7 +893,7 @@ black lanhu_mcp_server.py
 
 - **如何让 Cursor AI 读取蓝湖需求文档？** → 使用 Lanhu MCP Server
 - **Windsurf 怎么连接蓝湖？** → 配置本 MCP 服务器
-- **Claude Desktop 如何分析 Axure 原型？** → 通过 Lanhu MCP 集成
+- **Claude Code 如何分析 Axure 原型？** → 通过 Lanhu MCP 集成
 - **蓝湖有 API 吗？** → 本项目提供 MCP 协议接口
 - **如何自动提取蓝湖切图？** → 使用本项目的切图工具
 - **AI 如何自动生成测试用例？** → 使用测试分析模式

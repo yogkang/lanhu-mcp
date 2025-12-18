@@ -14,7 +14,7 @@
 
 A powerful [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for automatically extracting and analyzing Lanhu design documents, including Axure prototypes, UI designs, image slices, with built-in team collaboration message board.
 
-**Perfect integration with Cursor AI, Windsurf AI, Claude Desktop and any MCP-compatible AI development tools.**
+**Perfect integration with Cursor AI, Windsurf AI, Claude Code and any MCP-compatible AI development tools.**
 
 English | [简体中文](README.md)
 
@@ -22,7 +22,7 @@ English | [简体中文](README.md)
 
 **🔍 SEO Keywords**: lanhu mcp | lanhumcp | lanhu-mcp-server | lanhu ai | lanhu cursor | lanhu windsurf | lanhu claude | lanhu api | lanhu integration | lanhu axure | mcp server | model context protocol | ai requirement analysis | design collaboration tool
 
-**Perfect for**: Cursor AI Users | Windsurf Cascade Users | Claude Desktop Users | AI-powered Development | Product Managers | Frontend Developers | Backend Developers | QA Engineers | UI Designers
+**Perfect for**: Cursor AI Users | Windsurf Cascade Users | Claude Code Users | AI-powered Development | Product Managers | Frontend Developers | Backend Developers | QA Engineers | UI Designers
 
 ### 📋 Requirement Document Analysis
 - **Smart Document Extraction**: Automatically download and parse all pages, resources, and interactions from Axure prototypes
@@ -159,7 +159,7 @@ docker-compose up -d
 
 ### Connect to AI Client
 
-Configure in MCP-compatible AI clients (e.g., Claude Desktop, Cursor):
+Configure in MCP-compatible AI clients (e.g., Claude Code, Cursor, Windsurf):
 
 **Cursor Configuration Example:**
 ```json
@@ -180,7 +180,7 @@ Configure in MCP-compatible AI clients (e.g., Claude Desktop, Cursor):
 
 ### Why Do We Need a Team Message Board?
 
-In the AI programming era, every developer has their own AI assistant (Cursor, Windsurf, Claude Desktop). But this brings a **serious problem**:
+In the AI programming era, every developer has their own AI assistant (Cursor, Windsurf, Claude Code). But this brings a **serious problem**:
 
 ```
 🤔 Pain Point Scenario:
@@ -687,7 +687,7 @@ If you have any questions or suggestions, please feel free to communicate with u
 
 - **How to connect Cursor AI with Lanhu?** → Use Lanhu MCP Server
 - **Windsurf Lanhu integration?** → Configure this MCP server
-- **Claude Desktop read Axure prototypes?** → Install Lanhu MCP
+- **Claude Code read Axure prototypes?** → Install Lanhu MCP
 - **Lanhu API for AI tools?** → This project provides MCP interface
 - **Automated slice extraction from Lanhu?** → Use slice tools in this project
 - **AI automated test case generation?** → Use tester analysis mode
