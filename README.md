@@ -38,8 +38,8 @@
 
 🎯 **适用场景**：
 - ✅ Cursor + 蓝湖：让 Cursor AI 直接读取蓝湖需求文档和设计稿
-- ✅ Windsurf + 蓝湖：Windsurf Cascade AI 自动分析 Axure 原型
-- ✅ Claude Code + 蓝湖：Claude AI 提取蓝湖切图和标注
+- ✅ Windsurf + 蓝湖：Windsurf Cascade AI 直接读取蓝湖需求文档和设计稿
+- ✅ Claude Code + 蓝湖：Claude AI 直接读取蓝湖需求文档和设计稿
 - ✅ 任何支持 MCP 协议的 AI 开发工具
 
 🎯 **解决痛点**：
