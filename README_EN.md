@@ -14,15 +14,35 @@
 
 A powerful [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for automatically extracting and analyzing Lanhu design documents, including Axure prototypes, UI designs, image slices, with built-in team collaboration message board.
 
-**Perfect integration with Cursor AI, Windsurf AI, Claude Code and any MCP-compatible AI development tools.**
+**Perfect integration with:**
+
+**International Mainstream AI IDEs**:
+- ✅ **Cursor** - Cursor AI directly reads Lanhu requirements and designs
+- ✅ **Windsurf** - Windsurf Cascade AI directly reads Lanhu documents
+- ✅ **Claude Desktop** - Claude AI desktop app directly accesses Lanhu
+- ✅ **Continue** - VSCode/JetBrains AI coding assistant
+- ✅ **Cline** - Powerful VSCode AI programming plugin
+- ✅ **GitHub Copilot Workspace** - GitHub AI development environment
+
+**Chinese AI IDEs & Coding Assistants**:
+- ✅ **ByteDance Trae** - China's first AI-native IDE (Doubao-1.5-pro)
+- ✅ **Alibaba Tongyi Lingma** - AI assistant based on Tongyi model
+- ✅ **Tencent CodeBuddy** - Full-cycle AI integrated workbench
+- ✅ **Baidu Wenxin Kuaima** - Baidu AI coding assistant
+- ✅ **Kuaishou KwaiCoder** - Kuaishou AI programming tool
+- ✅ **Zhipu CodeGeeX** - Tsinghua-based AI coding assistant
+- ✅ **Huawei Cloud CodeArts Snap** - Huawei Cloud AI assistant
+- ✅ **SenseTime SenseCode** - SenseTime AI programming tool
+
+**Any MCP-compatible AI development tools**
 
 English | [简体中文](README.md)
 
 ## ✨ Key Features
 
-**🔍 SEO Keywords**: lanhu mcp | lanhumcp | lanhu-mcp-server | lanhu ai | lanhu cursor | lanhu windsurf | lanhu claude | lanhu api | lanhu integration | lanhu axure | mcp server | model context protocol | ai requirement analysis | design collaboration tool
+**🔍 SEO Keywords**: lanhu mcp | lanhumcp | lanhu-mcp-server | lanhu ai | lanhu cursor | lanhu windsurf | lanhu claude | lanhu trae | lanhu tongyi | lanhu codebuddy | lanhu cline | lanhu continue | lanhu api | lanhu integration | lanhu axure | mcp server | model context protocol | ai requirement analysis | design collaboration tool | bytedance ai coding | alibaba ai coding | tencent ai coding | baidu ai coding
 
-**Perfect for**: Cursor AI Users | Windsurf Cascade Users | Claude Code Users | AI-powered Development | Product Managers | Frontend Developers | Backend Developers | QA Engineers | UI Designers
+**Perfect for**: Product Managers | Frontend Developers | Backend Developers | QA Engineers | UI Designers | Cursor Users | Windsurf Users | Claude Users | Trae Users | Tongyi Lingma Users | CodeBuddy Users | Wenxin Kuaima Users | Cline Users | Continue Users | AI Coding Enthusiasts
 
 ### 📋 Requirement Document Analysis
 - **Smart Document Extraction**: Automatically download and parse all pages, resources, and interactions from Axure prototypes
@@ -693,7 +713,7 @@ If you have any questions or suggestions, please feel free to communicate with u
 
 ## 🏷️ Tags
 
-`lanhumcp` `lanhu-mcp` `lanhu-ai` `mcp-server` `cursor-plugin` `windsurf-integration` `claude-integration` `axure-automation` `requirement-analysis` `design-collaboration` `ai-development-tools` `model-context-protocol` `lanhu-api` `lanhu-cursor` `lanhu-windsurf` `lanhu-claude` `ai-coding-assistant` `design-handoff` `prototype-analysis`
+`lanhumcp` `lanhu-mcp` `lanhu-ai` `mcp-server` `cursor-plugin` `windsurf-integration` `claude-integration` `trae-integration` `tongyi-lingma` `codebuddy` `cline-plugin` `continue-plugin` `axure-automation` `requirement-analysis` `design-collaboration` `ai-development-tools` `model-context-protocol` `lanhu-api` `lanhu-cursor` `lanhu-windsurf` `lanhu-claude` `ai-coding-assistant` `design-handoff` `prototype-analysis` `bytedance-ai` `alibaba-ai` `tencent-ai` `baidu-ai`
 
 ---
 
@@ -702,10 +722,17 @@ If you have any questions or suggestions, please feel free to communicate with u
 - **How to connect Cursor AI with Lanhu?** → Use Lanhu MCP Server
 - **Windsurf Lanhu integration?** → Configure this MCP server
 - **Claude Code read Axure prototypes?** → Install Lanhu MCP
+- **ByteDance Trae Lanhu connection?** → Use this MCP server
+- **Alibaba Tongyi Lingma Lanhu integration?** → Configure Lanhu MCP
+- **Tencent CodeBuddy support Lanhu?** → Connect via MCP protocol
+- **Baidu Wenxin Kuaima integrate Lanhu?** → Use this project
+- **Cline plugin access Lanhu?** → Configure MCP server
 - **Lanhu API for AI tools?** → This project provides MCP interface
 - **Automated slice extraction from Lanhu?** → Use slice tools in this project
 - **AI automated test case generation?** → Use tester analysis mode
 - **蓝湖 Cursor 集成？** → 安装 Lanhu MCP Server
 - **如何让 AI 读取蓝湖需求？** → 使用本 MCP 服务器
+- **字节 Trae 蓝湖连接？** → 配置本 MCP 服务器
+- **通义灵码蓝湖集成？** → 使用 Lanhu MCP
 
 ---
