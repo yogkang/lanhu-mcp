@@ -83,7 +83,7 @@ English | [简体中文](README.md)
 ## 🚀 Quick Start
 
 > ⚠️ **IMPORTANT: Vision-Capable AI Model Required!**
-> 
+>
 > This project requires AI models with **image recognition and analysis capabilities**. Recommended 2025 mainstream vision models:
 > - 🤖 **Claude** (Anthropic)
 > - 🌟 **GPT** (OpenAI)
@@ -401,7 +401,7 @@ Returns:
       "last_seen": "2025-01-15 16:30:00"
     },
     {
-      "name": "Li", 
+      "name": "Li",
       "role": "Tester",
       "first_seen": "2025-01-12 10:00:00",
       "last_seen": "2025-01-15 14:00:00"

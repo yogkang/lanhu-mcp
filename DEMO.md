@@ -157,7 +157,7 @@ https://lanhuapp.com/web/#/item/project/product?tid=xxx&pid=xxx&docId=xxx
 内容：生产环境遇到 Redis 超时，排查后发现是连接池配置不当。
 解决方案：
 - maxTotal 调整为 20
-- maxIdle 调整为 10  
+- maxIdle 调整为 10
 - testOnBorrow 设置为 true
 效果：超时率从 5% 降至 0.1%
 
@@ -181,7 +181,7 @@ https://lanhuapp.com/web/#/item/project/product?tid=xxx&pid=xxx&docId=xxx
 
 1️⃣ Redis连接池配置优化（小王-后端，2025-01-15）
    生产环境遇到 Redis 超时，排查后发现是...
-   
+
 2️⃣ Redis缓存穿透解决方案（小张-后端，2025-01-10）
    使用布隆过滤器解决缓存穿透...
 
@@ -241,7 +241,7 @@ https://lanhuapp.com/web/#/item/project/stage?tid=xxx&pid=xxx
 
 📊 共 3 张设计图：
 1. 首页设计 (1920x1080)
-2. 登录页 (750x1334)  
+2. 登录页 (750x1334)
 3. 个人中心 (750x1334)
 
 [图片1：首页设计]
@@ -350,7 +350,7 @@ https://lanhuapp.com/web/#/item/project/stage?tid=xxx&pid=xxx
 > "以前每个人的 AI 都要重新分析需求，现在一次分析，全员复用，效率提升太明显了！"
 > —— 后端开发 小王
 
-> "测试人员的 AI 可以直接用开发的分析结果写用例，不用重复理解需求了"  
+> "测试人员的 AI 可以直接用开发的分析结果写用例，不用重复理解需求了"
 > —— 测试工程师 小李
 
 > "踩过的坑保存成知识库，新人的 AI 也能查到，避免重复踩坑"
@@ -388,4 +388,3 @@ cd lanhu-mcp-server
 ```
 
 就是这么简单！🎉
-

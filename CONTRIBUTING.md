@@ -123,14 +123,14 @@ refactor: extract message store logic into separate class
 async def fetch_metadata(url: str, use_cache: bool = True) -> dict:
     """
     从蓝湖URL获取元数据
-    
+
     Args:
         url: 蓝湖文档URL
         use_cache: 是否使用缓存，默认为True
-    
+
     Returns:
         包含元数据的字典
-    
+
     Raises:
         ValueError: URL格式不正确时抛出
     """
@@ -177,7 +177,7 @@ def test_save_message():
         author_name="Test User",
         author_role="Developer"
     )
-    
+
     assert msg["id"] == 1
     assert msg["summary"] == "Test message"
     assert msg["author_name"] == "Test User"
@@ -347,4 +347,3 @@ If you have any questions, feel free to:
 - Email us at: dsphper@gmail.com
 
 Thank you for contributing! 🎉
-
