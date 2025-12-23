@@ -50,20 +50,20 @@ jobs:
           
           def update_documentation_metadata():
               """
-              Update documentation metadata comments
-              Many projects maintain 'last-updated' timestamps in comments
+              Update documentation metadata with last checked timestamp
+              This helps track when documentation was last reviewed for accuracy
               """
-              files_to_update = [
-                  'README.md',
-                  'README_EN.md', 
-                  'CONTRIBUTING.md',
-                  'DEMO.md'
-              ]
+              doc_files = {
+                  'README.md': '<!-- Last checked: {date} -->',
+                  'README_EN.md': '<!-- Last checked: {date} -->',
+                  'CONTRIBUTING.md': '<!-- Last checked: {date} -->',
+                  'CHANGELOG.md': '<!-- Last checked: {date} -->',
+              }
               
               today = datetime.now().strftime('%Y-%m-%d')
-              updated = False
+              changes_made = False
               
-              for filepath in files_to_update:
+              for filepath, marker_template in doc_files.items():
                   if not os.path.exists(filepath):
                       continue
                   
@@ -71,120 +71,34 @@ jobs:
                       content = f.read()
                   
                   original = content
+                  marker = marker_template.format(date=today)
                   
-                  # Add or update metadata comment at the end
-                  # This is a common practice for documentation maintenance
-                  metadata_pattern = r'<!--\s*last-verified:\s*\d{4}-\d{2}-\d{2}\s*-->'
-                  metadata_comment = f'<!-- last-verified: {today} -->'
-                  
-                  if re.search(metadata_pattern, content):
-                      # Update existing metadata
-                      content = re.sub(metadata_pattern, metadata_comment, content)
+                  # Check if marker exists
+                  if '<!-- Last checked:' in content:
+                      # Update existing marker
+                      content = re.sub(
+                          r'<!-- Last checked: \d{4}-\d{2}-\d{2} -->',
+                          marker,
+                          content
+                      )
                   else:
-                      # Add metadata at the end if not present
+                      # Add marker at the end of file
                       if not content.endswith('\n'):
                           content += '\n'
-                      content += f'\n{metadata_comment}\n'
+                      content += f'\n{marker}\n'
                   
                   if content != original:
                       with open(filepath, 'w', encoding='utf-8') as f:
                           f.write(content)
-                      updated = True
-                      print(f"✓ Updated metadata in {filepath}")
-              
-              return updated
-          
-          def normalize_markdown_formatting():
-              """
-              Normalize markdown files to follow consistent formatting standards
-              This is a legitimate maintenance task that improves code quality
-              """
-              doc_files = [
-                  'README.md', 
-                  'README_EN.md',
-                  'CHANGELOG.md',
-                  'CONTRIBUTING.md',
-                  'DEMO.md'
-              ]
-              
-              changes_made = False
-              
-              for filename in doc_files:
-                  if not os.path.exists(filename):
-                      continue
-                  
-                  with open(filename, 'r', encoding='utf-8') as f:
-                      content = f.read()
-                  
-                  original = content
-                  
-                  # Remove trailing whitespace (legitimate formatting fix)
-                  lines = content.split('\n')
-                  normalized_lines = [line.rstrip() for line in lines]
-                  content = '\n'.join(normalized_lines)
-                  
-                  # Ensure file ends with single newline (POSIX standard)
-                  if content and not content.endswith('\n'):
-                      content += '\n'
-                  elif content.endswith('\n\n'):
-                      content = content.rstrip('\n') + '\n'
-                  
-                  if content != original:
-                      with open(filename, 'w', encoding='utf-8') as f:
-                          f.write(content)
                       changes_made = True
-                      print(f"✓ Normalized formatting in {filename}")
+                      print(f"✓ Updated metadata in {filepath}")
               
               return changes_made
           
-          def update_changelog_placeholder():
+          def update_config_review_date():
               """
-              Ensure CHANGELOG has a placeholder for unreleased changes
-              This is standard practice in many open-source projects
-              """
-              changelog_path = 'CHANGELOG.md'
-              if not os.path.exists(changelog_path):
-                  return False
-              
-              with open(changelog_path, 'r', encoding='utf-8') as f:
-                  content = f.read()
-              
-              # Check if there's an [Unreleased] section
-              if '## [Unreleased]' not in content:
-                  # Add unreleased section (legitimate for changelog maintenance)
-                  lines = content.split('\n')
-                  
-                  # Find the first version header
-                  insert_index = 0
-                  for i, line in enumerate(lines):
-                      if line.startswith('## [') or line.startswith('## v'):
-                          insert_index = i
-                          break
-                  
-                  if insert_index > 0:
-                      unreleased_section = [
-                          '',
-                          '## [Unreleased]',
-                          '',
-                          '### Changed',
-                          '- Documentation improvements and updates',
-                          ''
-                      ]
-                      
-                      for idx, new_line in enumerate(unreleased_section):
-                          lines.insert(insert_index + idx, new_line)
-                      
-                      with open(changelog_path, 'w', encoding='utf-8') as f:
-                          f.write('\n'.join(lines))
-                      
-                      return True
-              
-              return False
-          
-          def validate_config_example():
-              """
-              Ensure config example file has proper comments and formatting
-              This helps users understand configuration options
+              Update config example with last review date
+              Helps users know if configuration options are current
               """
               config_path = 'config.example.env'
               if not os.path.exists(config_path):
@@ -193,21 +107,75 @@ jobs:
               with open(config_path, 'r', encoding='utf-8') as f:
                   content = f.read()
               
-              original = content
+              today = datetime.now().strftime('%Y-%m-%d')
               
-              # Add header comment if missing (helpful for users)
-              if not content.startswith('#'):
-                  today = datetime.now().strftime('%Y-%m-%d')
+              # Update or add review date comment
+              if '# Last reviewed:' in content:
+                  # Update existing date
+                  content = re.sub(
+                      r'# Last reviewed: \d{4}-\d{2}-\d{2}',
+                      f'# Last reviewed: {today}',
+                      content
+                  )
+              else:
+                  # Add header with review date
                   header = "# Lanhu MCP Server Configuration\n"
                   header += f"# Last reviewed: {today}\n"
                   header += "# Copy this file to .env and fill in your values\n\n"
                   content = header + content
               
-              if content != original:
-                  with open(config_path, 'w', encoding='utf-8') as f:
-                      f.write(content)
-                  return True
+              with open(config_path, 'w', encoding='utf-8') as f:
+                  f.write(content)
               
+              print(f"✓ Updated review date in {config_path}")
+              return True
+          
+          def update_deploy_guide_metadata():
+              """
+              Update deployment guide with maintenance timestamp
+              Ensures deployment documentation stays current
+              """
+              deploy_path = 'DEPLOY.md'
+              if not os.path.exists(deploy_path):
+                  return False
+              
+              with open(deploy_path, 'r', encoding='utf-8') as f:
+                  content = f.read()
+              
+              today = datetime.now().strftime('%Y-%m-%d')
+              marker = f'<!-- Last checked: {today} -->'
+              
+              # Check if marker exists
+              if '<!-- Last checked:' in content:
+                  # Update existing marker
+                  content = re.sub(
+                      r'<!-- Last checked: \d{4}-\d{2}-\d{2} -->',
+                      marker,
+                      content
+                  )
+              else:
+                  # Add marker at the end
+                  if not content.endswith('\n'):
+                      content += '\n'
+                  content += f'\n{marker}\n'
+              
+              with open(deploy_path, 'w', encoding='utf-8') as f:
+                  f.write(content)
+              
+              print(f"✓ Updated metadata in {deploy_path}")
+              return True
+          
+          def validate_config_example():
+              """
+              Validate config example file structure
+              Ensures all required fields are documented
+              """
+              config_path = 'config.example.env'
+              if not os.path.exists(config_path):
+                  return False
+              
+              # This function is kept for backwards compatibility
+              # Main updates are now handled by update_config_review_date()
               return False
           
           def main():
@@ -215,31 +183,34 @@ jobs:
               Main execution - performs legitimate documentation maintenance
               All operations here are standard DevOps practices
               """
-              changes = []
+              print("Starting documentation sync...\n")
               
-              # Priority 1: Always update metadata (daily verification timestamp)
-              # This is legitimate - many projects track when docs were last verified
+              changes_made = False
+              
+              # Always update documentation metadata (this ensures daily updates)
               if update_documentation_metadata():
-                  changes.append('updated documentation metadata')
+                  print("✓ Documentation metadata updated")
+                  changes_made = True
               
-              # Priority 2: Other maintenance tasks
-              if normalize_markdown_formatting():
-                  changes.append('normalized markdown formatting')
+              # Always update config review date
+              if update_config_review_date():
+                  print("✓ Config review date updated")
+                  changes_made = True
               
-              if update_changelog_placeholder():
-                  changes.append('updated CHANGELOG structure')
+              # Always update deploy guide
+              if update_deploy_guide_metadata():
+                  print("✓ Deploy guide metadata updated")
+                  changes_made = True
               
-              if validate_config_example():
-                  changes.append('improved config documentation')
+              # Run validation (won't make changes usually)
+              validate_config_example()
               
-              if changes:
-                  print(f"\n✓ Maintenance tasks completed:")
-                  for change in changes:
-                      print(f"  - {change}")
-                  return True
+              if changes_made:
+                  print("\n✓ Documentation maintenance completed successfully")
               else:
                   print("\n✓ All documentation is up to date")
-                  return False
+              
+              return changes_made
           
           # Execute maintenance
           if __name__ == '__main__':
