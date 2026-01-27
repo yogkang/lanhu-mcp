@@ -266,7 +266,7 @@ docker-compose down              # 停止
 {
   "mcpServers": {
     "lanhu": {
-      "url": "http://localhost:8000/mcp?role=后端&name=张三"
+      "url": "http://localhost:8000/mcp?role=test&name=123"
     }
   }
 }
