@@ -107,13 +107,29 @@ echo 🎉 依赖安装完成！
 timeout /t 1 /nobreak >nul
 
 REM ============================================
-REM 步骤 3: 获取蓝湖 Cookie（交互式）
+REM 步骤 3: 配置蓝湖 Cookie
 REM ============================================
 
 echo.
 echo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-echo 🍪 步骤 3/5: 获取蓝湖 Cookie
+echo 🍪 步骤 3/5: 配置蓝湖 Cookie
 echo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+echo.
+
+REM 复制 .env.example 到 .env
+if not exist ".env" (
+    if exist ".env.example" (
+        copy .env.example .env >nul
+        echo ✅ 已创建 .env 配置文件
+    ) else (
+        echo ❌ 未找到 .env.example 文件
+        pause
+        exit /b 1
+    )
+) else (
+    echo ✅ .env 文件已存在
+)
+
 echo.
 echo 这是唯一需要你手动操作的步骤，很简单！
 echo.
@@ -136,84 +152,78 @@ echo.
 echo   7️⃣  选中并复制 整个 Cookie 值
 echo      （Cookie 很长，确保全部复制）
 echo.
+echo   8️⃣  用记事本打开当前目录下的 .env 文件
+echo      找到 LANHU_COOKIE 这一行
+echo      将 your_lanhu_cookie_here 替换为你复制的 Cookie
+echo      注意：保留引号，只替换引号内的内容
+echo.
 echo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 echo.
 
-REM 尝试打开浏览器
-set /p OPEN_BROWSER="我可以帮你打开蓝湖网站吗？(y/n) [y]: "
-if "!OPEN_BROWSER!"=="" set OPEN_BROWSER=y
-if /i "!OPEN_BROWSER!"=="y" (
+REM 尝试打开浏览器和文件
+set /p OPEN_FILES="我可以帮你打开蓝湖网站和 .env 文件吗？(y/n) [y]: "
+if "!OPEN_FILES!"=="" set OPEN_FILES=y
+if /i "!OPEN_FILES!"=="y" (
     start https://lanhuapp.com
-    echo ✅ 已打开浏览器
+    start notepad .env
+    echo ✅ 已打开浏览器和 .env 文件
     echo.
 )
 
-echo 复制好 Cookie 后，粘贴到下面：
-echo.
-set /p LANHU_COOKIE="> "
+echo 完成配置后，按 Enter 继续...
+pause >nul
+
+REM 读取 .env 文件中的 Cookie
+set LANHU_COOKIE=
+for /f "tokens=1,* delims==" %%a in ('type .env ^| findstr /B "LANHU_COOKIE="') do (
+    set "LANHU_COOKIE=%%b"
+)
+
+REM 移除引号
+set LANHU_COOKIE=%LANHU_COOKIE:"=%
 
 REM 验证 Cookie 不为空
 if "!LANHU_COOKIE!"=="" (
-    echo ❌ Cookie 不能为空
+    echo ❌ Cookie 未配置或配置不正确
+    echo 请确保在 .env 文件中正确设置了 LANHU_COOKIE
     pause
     exit /b 1
 )
 
+if "!LANHU_COOKIE!"=="your_lanhu_cookie_here" (
+    echo ❌ Cookie 未修改，请在 .env 文件中设置正确的 Cookie
+    pause
+    exit /b 1
+)
+
+REM 简单验证 Cookie 格式
+echo !LANHU_COOKIE! | findstr /C:"session=" >nul
+if errorlevel 1 (
+    echo !LANHU_COOKIE! | findstr /C:"user_token=" >nul
+    if errorlevel 1 (
+        echo ⚠️  Cookie 格式可能不正确
+        set /p CONTINUE_ANYWAY="确定要继续吗？(y/n) [n]: "
+        if /i not "!CONTINUE_ANYWAY!"=="y" (
+            echo 安装已取消
+            pause
+            exit /b 1
+        )
+    )
+)
+
 echo.
-echo ✅ Cookie 已接收！
+echo ✅ Cookie 配置验证通过！
 timeout /t 1 /nobreak >nul
 
 REM ============================================
-REM 步骤 4: 生成配置文件
+REM 步骤 4: 创建数据目录
 REM ============================================
 
 echo.
 echo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-echo ⚙️  步骤 4/5: 生成配置文件
+echo 📁 步骤 4/5: 创建数据目录
 echo ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 echo.
-
-REM 创建 .env 文件
-(
-echo # 蓝湖 MCP 服务器配置
-echo # 由 easy-install.bat 自动生成
-echo.
-echo # ==============================================
-echo # 必需配置
-echo # ==============================================
-echo.
-echo # 蓝湖 Cookie（必需^)
-echo LANHU_COOKIE="!LANHU_COOKIE!"
-echo.
-echo # ==============================================
-echo # 服务器配置
-echo # ==============================================
-echo.
-echo SERVER_HOST="0.0.0.0"
-echo SERVER_PORT=8000
-echo.
-echo # ==============================================
-echo # 数据存储
-echo # ==============================================
-echo.
-echo DATA_DIR="./data"
-echo.
-echo # ==============================================
-echo # 性能配置
-echo # ==============================================
-echo.
-echo HTTP_TIMEOUT=30
-echo VIEWPORT_WIDTH=1920
-echo VIEWPORT_HEIGHT=1080
-echo.
-echo # ==============================================
-echo # 调试选项
-echo # ==============================================
-echo.
-echo DEBUG="false"
-) > .env
-
-echo ✅ 配置文件已生成
 
 REM 创建数据目录
 if not exist "data" mkdir data
